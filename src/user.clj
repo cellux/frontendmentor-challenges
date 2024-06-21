@@ -23,7 +23,7 @@
       (.getParentFile)))
 
 (def build-root
-  (File. project-root "build"))
+  (File. project-root "docs"))
 
 (defn project-namespace
   [project-name]
