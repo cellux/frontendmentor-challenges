@@ -55,9 +55,9 @@
     [:body
      [:div#container
       [:div#design
-       [:img {:src "desktop-design.jpg"}]]
-      [:div#card
-       [:img {:src "image-qr-code.png"}]
+       [:img {:src "desktop-design.jpg" :alt "Original design JPG"}]]
+      [:main#card
+       [:img {:src "image-qr-code.png" :alt "QR code"}]
        [:div
         [:h1 "Improve your front-end skills by building projects"]
         [:p "Scan the QR code to visit Frontend Mentor and take your coding skills to the next level"]]]]]))
