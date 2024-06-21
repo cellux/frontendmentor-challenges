@@ -35,7 +35,8 @@
                                    :font-size "22px"
                                    :letter-spacing "0.1px"
                                    :color (hsl 218 44 22)
-                                   :filter "blur(0.4px)"}]
+                                   :filter "blur(0.4px)"
+                                   :line-height "1.3em"}]
        [(s/descendant :#card :p) {:color (hsl 0 0 55)
                                   :font-size "15.5px"
                                   :line-height "1.2em"}]))
@@ -51,6 +52,7 @@
      [:link {:rel "preconnect" :href "https://fonts.googleapis.com"}]
      [:link {:rel "preconnect" :href "https://fonts.gstatic.com" :crossorigin true}]
      [:link {:rel "stylesheet" :href "https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" :crossorigin true}]
+     [:link {:rel "stylesheet" :href "../normalize.css"}]
      [:style (stylesheet)]]
     [:body
      [:div#container
