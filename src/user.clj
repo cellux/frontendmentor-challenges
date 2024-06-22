@@ -105,11 +105,14 @@
                       project-name (.. file-path getParent getFileName toString (str/replace \_ \-))]
                   (log (.kind event) file-path project-name)
                   (when (contains? projects project-name)
-                    (load-project-namespace project-name)
-                    (log "reloading namespaces")
-                    (reload/reload)
-                    (build project-name)
-                    (log "rebuilt project:" project-name))))
+                    (try
+                      (load-project-namespace project-name)
+                      (log "reloading namespaces")
+                      (reload/reload)
+                      (build project-name)
+                      (log "rebuild succeeded:" project-name)
+                      (catch Throwable e
+                        (log "rebuild failed:" project-name))))))
               (.reset key)
               (recur (.take ws))))
           (catch ClosedWatchServiceException e)))
