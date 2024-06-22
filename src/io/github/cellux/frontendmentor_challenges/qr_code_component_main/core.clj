@@ -12,6 +12,7 @@
   []
   (css [:body {:background-color (hsl 212 45 89)}]
        [:#container {:display :flex
+                     :flex-direction :column
                      :justify-content :center
                      :align-items :center
                      :height "100vh"}]
@@ -57,7 +58,8 @@
     [:body
      [:div#container
       [:div#design
-       [:img {:src "desktop-design.jpg" :alt "Original design JPG"}]]
+       #_[:img {:src "desktop-design.jpg" :alt "Original design JPG"}]
+       #_[:img {:src "mobile-design.jpg" :alt "Original design JPG"}]]
       [:main#card
        [:img {:src "image-qr-code.png" :alt "QR code"}]
        [:div
@@ -68,4 +70,5 @@
   [[:copy page "index.html"]
    [:copy "images/favicon-32x32.png"]
    [:copy "images/image-qr-code.png"]
-   [:copy "design/desktop-design.jpg"]])
+   [:copy "design/desktop-design.jpg"]
+   [:copy "design/mobile-design.jpg"]])
