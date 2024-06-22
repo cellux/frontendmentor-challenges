@@ -4,42 +4,39 @@
    [clojure.java.io :as jio]
    [clojure.string :as str]
    [hiccup.page :refer [html5]]
-   [garden.core :refer [css]]
+   [garden.core :refer [css style]]
    [garden.color :refer [hsl]]
    [garden.selectors :as s]))
 
 (defn stylesheet
   []
-  (css [:body {:background-color (hsl 212 45 89)}]
+  (css [:body {:background-color (hsl 212 45 89)
+               :box-sizing :border-box
+               :font-family "\"Outfit\", sans-serif"
+               :font-size "min(15.5px, 2vh)"}]
        [:#container {:display :flex
                      :flex-direction :column
                      :justify-content :center
                      :align-items :center
-                     :height "100vh"}]
-       [:#design {:position :absolute
-                  :z-index 1
-                  :visibility :hidden}]
+                     :height "100dvh"}]
        [:#card {:background-color (hsl 0 0 100)
-                :box-sizing :border-box
-                :width "320px"
-                :height "500px"
+                :max-width "18.5em"
                 :padding "16px"
+                :margin "16px 32px"
                 :text-align "center"
                 :border-radius "20px"
                 :box-shadow "0 30px 30px #4441"}]
        [(s/> :#card :img) {:width "100%"
                            :border-radius "10px"}]
        [(s/> :#card :div) {:width "90%"
-                           :margin "1lh auto"
-                           :font-family "\"Outfit\", sans-serif"}]
+                           :margin "1.2lh auto"}]
        [(s/descendant :#card :h1) {:font-weight 700
-                                   :font-size "22px"
+                                   :font-size "140%"
                                    :letter-spacing "0.1px"
                                    :color (hsl 218 44 22)
                                    :filter "blur(0.4px)"
                                    :line-height "1.3em"}]
        [(s/descendant :#card :p) {:color (hsl 0 0 55)
-                                  :font-size "15.5px"
                                   :line-height "1.2em"}]))
 
 (defn page
@@ -58,6 +55,9 @@
     [:body
      [:div#container
       [:div#design
+       {:style (style {:position :absolute
+                       :z-index 1
+                       :visibility :hidden})}
        #_[:img {:src "desktop-design.jpg" :alt "Original design JPG"}]
        #_[:img {:src "mobile-design.jpg" :alt "Original design JPG"}]]
       [:main#card
